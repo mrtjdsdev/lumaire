@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HardwareVisualizer } from "@/components/hardware/hardware-visualizer";
+import { Reveal } from "@/components/motion/reveal";
 import { buttonClass } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function ArchitecturePage() {
   return (
     <article className="bg-[#090909] text-[#f4f4f0]">
       <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:px-10 sm:py-14">
-        <header className="max-w-3xl">
+        <Reveal as="header" className="max-w-3xl">
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#9a9a94]">
             <span className="mr-3 text-[#f4f4f0]">HW</span>
             Architecture
@@ -47,13 +48,13 @@ export default function ArchitecturePage() {
             A physical Lumaire display is an ESP32-S3 on the back of an e-paper panel. The software boundary for that
             controller exists here. It is not wired to a device.
           </p>
-        </header>
+        </Reveal>
 
-        <div className="mt-10">
+        <Reveal delay={0.08} className="mt-10">
           <HardwareVisualizer />
-        </div>
+        </Reveal>
 
-        <section className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-2">
+        <Reveal as="section" className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-2">
           <div className="bg-[#101010] p-6 sm:p-8">
             <h2 className="text-xl font-medium tracking-[-0.03em]">What works today</h2>
             <ul className="mt-5 space-y-3 text-sm leading-6 text-[#b7b7b1]">
@@ -76,9 +77,9 @@ export default function ArchitecturePage() {
               Dithering and waveform stay in the hardware path
             </p>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="mt-8">
+        <Reveal as="section" className="mt-8">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">The path a photograph will take</p>
           <ol className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
@@ -89,9 +90,9 @@ export default function ArchitecturePage() {
               </li>
             ))}
           </ol>
-        </section>
+        </Reveal>
 
-        <section className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-[1.1fr_0.9fr]">
+        <Reveal as="section" className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-[1.1fr_0.9fr]">
           <div className="bg-[#101010] p-6 sm:p-8">
             <h2 className="text-xl font-medium tracking-[-0.03em]">Replace the transport</h2>
             <p className="mt-4 text-sm leading-7 text-[#b7b7b1]">
@@ -115,9 +116,9 @@ export default function ArchitecturePage() {
               <li>The app shows online only after a heartbeat from that controller.</li>
             </ol>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="mt-8">
+        <Reveal as="section" className="mt-8">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">Firmware owns</p>
           <dl className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] sm:grid-cols-2 lg:grid-cols-5">
             {firmware.map((item) => (
@@ -127,9 +128,9 @@ export default function ArchitecturePage() {
               </div>
             ))}
           </dl>
-        </section>
+        </Reveal>
 
-        <section className="mt-8 rounded-2xl border border-[#2a2a2a] bg-[#101010] p-6 sm:p-8">
+        <Reveal as="section" className="mt-8 rounded-2xl border border-[#2a2a2a] bg-[#101010] p-6 sm:p-8">
           <h2 className="text-xl font-medium tracking-[-0.03em]">A small API, when a backend exists</h2>
           <ul className="mt-4 space-y-2 font-mono text-[12px] leading-6 text-[#9a9a94]">
             <li>POST /api/pairings</li>
@@ -140,9 +141,9 @@ export default function ArchitecturePage() {
           <p className="mt-4 text-sm leading-7 text-[#b7b7b1]">
             These routes are not implemented. No device secret, API key, or credential belongs in this frontend.
           </p>
-        </section>
+        </Reveal>
 
-        <section className="mt-8 rounded-2xl border border-[#2a2a2a] bg-[#050505] p-6 sm:p-8">
+        <Reveal as="section" className="mt-8 rounded-2xl border border-[#2a2a2a] bg-[#050505] p-6 sm:p-8">
           <h2 className="text-xl font-medium tracking-[-0.03em]">Before a panel can be connected</h2>
           <ul className="mt-4 space-y-3 text-sm leading-7 text-[#b7b7b1]">
             <li>Choose the e-paper module and confirm its resolution, bus, and refresh time.</li>
@@ -161,7 +162,7 @@ export default function ArchitecturePage() {
           >
             Back home
           </Link>
-        </section>
+        </Reveal>
       </div>
     </article>
   );

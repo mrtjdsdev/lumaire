@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LogoMark } from "@/components/brand/logo";
+import { Reveal } from "@/components/motion/reveal";
 
 const explore = [
   { href: "/#product", label: "Product" },
@@ -17,7 +18,7 @@ const tools = [
 export function SiteFooter() {
   return (
     <footer className="border-t border-[#e4e4e0] bg-[#f5f5f3]">
-      <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 sm:px-10 md:grid-cols-[1.4fr_1fr_1fr]">
+      <Reveal className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 sm:px-10 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Link href="/" className="inline-flex items-center gap-2.5" aria-label="Lumaire, home">
             <LogoMark className="h-8 w-8" />
@@ -55,7 +56,7 @@ export function SiteFooter() {
             founders@lumaire.io
           </a>
         </div>
-      </div>
+      </Reveal>
       <div className="border-t border-[#e4e4e0]">
         <p className="mx-auto w-full max-w-6xl px-6 py-5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#6b6b66] sm:px-10">
           © 2026 Lumaire

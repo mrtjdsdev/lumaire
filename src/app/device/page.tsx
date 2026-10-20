@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DeviceSettings } from "@/components/device/device-settings";
+import { Reveal } from "@/components/motion/reveal";
 
 export const metadata: Metadata = {
   title: "Device",
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function DevicePage() {
-  return <DeviceSettings />;
+  return (
+    <Reveal y={12}>
+      <DeviceSettings />
+    </Reveal>
+  );
 }

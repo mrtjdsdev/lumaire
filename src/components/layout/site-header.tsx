@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion, useScroll, useSpring } from "motion/react";
 import { Wordmark } from "@/components/brand/wordmark";
 import { cn } from "@/lib/cn";
+
+const MotionLink = motion.create(Link);
 
 const sectionLinks = [
   { href: "/#product", label: "Product" },
@@ -26,6 +29,8 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const open = openPath === pathname;
   const inApp = appLinks.some((link) => pathname === link.href);
+  const { scrollYProgress } = useScroll();
+  const progressScaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 28, mass: 0.4 });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -66,21 +71,22 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Link href="/#waitlist" aria-label="Join the waitlist" className="press inline-flex h-10 items-center rounded-full bg-ink px-4 text-sm text-paper shadow-[0_1px_2px_rgba(17,17,17,0.18)] hover:bg-[#2a2a2a] lg:hidden">
+          <MotionLink href="/#waitlist" aria-label="Join the waitlist" whileTap={{ scale: 0.96 }} className="inline-flex h-10 items-center rounded-full bg-ink px-4 text-sm text-paper shadow-[0_1px_2px_rgba(17,17,17,0.18)] hover:bg-[#2a2a2a] lg:hidden">
             Waitlist
-          </Link>
-          <Link href="/#waitlist" className="press hidden h-10 items-center rounded-full bg-ink px-5 text-sm text-paper shadow-[0_1px_2px_rgba(17,17,17,0.18)] hover:bg-[#2a2a2a] lg:inline-flex">
+          </MotionLink>
+          <MotionLink href="/#waitlist" whileTap={{ scale: 0.96 }} className="hidden h-10 items-center rounded-full bg-ink px-5 text-sm text-paper shadow-[0_1px_2px_rgba(17,17,17,0.18)] hover:bg-[#2a2a2a] lg:inline-flex">
             Join the waitlist
-          </Link>
-          <button
+          </MotionLink>
+          <motion.button
             type="button"
-            className="press inline-flex h-10 items-center rounded-full border border-[#deded8] bg-white/60 px-4 text-sm lg:hidden"
+            whileTap={{ scale: 0.96 }}
+            className="inline-flex h-10 items-center rounded-full border border-[#deded8] bg-white/60 px-4 text-sm lg:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpenPath(open ? null : pathname)}
           >
             {open ? "Close" : "Menu"}
-          </button>
+          </motion.button>
         </div>
       </div>
       {inApp ? (
@@ -103,29 +109,45 @@ export function SiteHeader() {
           })}
         </nav>
       ) : null}
-      <div id={menuId} hidden={!open} className="border-t border-[#deded8] bg-[#f5f5f3] lg:hidden">
-        <nav className="mx-auto flex w-full max-w-6xl flex-col px-6 py-3 sm:px-10" aria-label="Mobile">
-          {sectionLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="border-b border-[#ecece8] py-3 text-base" onClick={() => setOpenPath(null)}>
-              {link.label}
-            </Link>
-          ))}
-          {appLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="border-b border-[#ecece8] py-3 text-base"
-              aria-current={pathname === link.href ? "page" : undefined}
-              onClick={() => setOpenPath(null)}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/#waitlist" className="press mt-4 inline-flex h-12 items-center justify-center rounded-full bg-ink text-sm text-paper" onClick={() => setOpenPath(null)}>
-            Join the waitlist
-          </Link>
-        </nav>
-      </div>
+      <AnimatePresence initial={false}>
+        {open ? (
+          <motion.div
+            id={menuId}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-t border-[#deded8] bg-[#f5f5f3] lg:hidden"
+          >
+            <nav className="mx-auto flex w-full max-w-6xl flex-col px-6 py-3 sm:px-10" aria-label="Mobile">
+              {sectionLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="border-b border-[#ecece8] py-3 text-base" onClick={() => setOpenPath(null)}>
+                  {link.label}
+                </Link>
+              ))}
+              {appLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="border-b border-[#ecece8] py-3 text-base"
+                  aria-current={pathname === link.href ? "page" : undefined}
+                  onClick={() => setOpenPath(null)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <MotionLink href="/#waitlist" whileTap={{ scale: 0.97 }} className="mt-4 inline-flex h-12 items-center justify-center rounded-full bg-ink text-sm text-paper" onClick={() => setOpenPath(null)}>
+                Join the waitlist
+              </MotionLink>
+            </nav>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+      <motion.div
+        aria-hidden="true"
+        style={{ scaleX: progressScaleX }}
+        className="absolute inset-x-0 bottom-0 h-[2px] origin-left bg-ink/60"
+      />
     </header>
   );
 }

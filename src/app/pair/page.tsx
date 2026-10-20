@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PairingPanel } from "@/components/device/pairing-panel";
+import { Reveal } from "@/components/motion/reveal";
 
 export const metadata: Metadata = {
   title: "Pair",
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function PairPage() {
-  return <PairingPanel />;
+  return (
+    <Reveal y={12}>
+      <PairingPanel />
+    </Reveal>
+  );
 }

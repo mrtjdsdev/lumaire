@@ -1,6 +1,8 @@
 "use client";
 
 import { useId, useState, type FormEvent } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { Reveal } from "@/components/motion/reveal";
 
 const models = [
   { id: 'Wall Hub (10.0")', detail: "10.0 inch, black and white" },
@@ -73,7 +75,7 @@ export function WaitlistSection() {
   return (
     <section id="waitlist" className="scroll-mt-24 bg-[#111111] text-[#f4f4f2]">
       <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-24 sm:px-10 sm:py-32 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div className="reveal">
+        <Reveal>
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#b7b7b1]">
             <span className="mr-3 text-[#f4f4f2]">04</span>
             Waitlist
@@ -87,21 +89,23 @@ export function WaitlistSection() {
           <p className="mt-6 max-w-md text-sm leading-6 text-[#b7b7b1]">
             Choosing a model records interest only. It is not an order, and no payment is taken. Hardware is still in development.
           </p>
-        </div>
+        </Reveal>
 
-        <form className="reveal rounded-2xl border border-[#2e2e2e] bg-[#171717] p-6 shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:p-8" onSubmit={onSubmit} noValidate aria-busy={submitting}>
+        <Reveal as="form" delay={0.1} className="rounded-2xl border border-[#2e2e2e] bg-[#171717] p-6 shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:p-8" onSubmit={onSubmit} noValidate aria-busy={submitting}>
           <fieldset>
             <legend className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#b7b7b1]">Models you want to hear about</legend>
             <div className="mt-4 grid gap-2">
               {models.map((model) => {
                 const pressed = selected.includes(model.id);
                 return (
-                  <button
+                  <motion.button
                     key={model.id}
                     type="button"
                     aria-pressed={pressed}
                     onClick={() => toggle(model.id)}
-                    className={`press flex items-center justify-between gap-4 rounded-xl border px-4 py-3 text-left ${
+                    whileTap={{ scale: 0.985 }}
+                    transition={{ duration: 0.18 }}
+                    className={`flex items-center justify-between gap-4 rounded-xl border px-4 py-3 text-left ${
                       pressed ? "border-[#f4f4f2] bg-[#f4f4f2] text-[#111]" : "border-[#3a3a3a] text-[#f4f4f2] hover:border-[#8a8a84]"
                     }`}
                   >
@@ -109,8 +113,13 @@ export function WaitlistSection() {
                       <span className="block text-sm">{model.id}</span>
                       <span className={`mt-1 block text-xs ${pressed ? "text-[#3f3f3c]" : "text-[#b7b7b1]"}`}>{model.detail}</span>
                     </span>
-                    <span className={`h-3.5 w-3.5 rounded-full border ${pressed ? "border-[#111] bg-[#111]" : "border-[#8a8a84]"}`} aria-hidden="true" />
-                  </button>
+                    <motion.span
+                      aria-hidden="true"
+                      animate={{ scale: pressed ? 1 : 0.5, opacity: pressed ? 1 : 0.45 }}
+                      transition={{ type: "spring", stiffness: 500, damping: 24 }}
+                      className={`h-3.5 w-3.5 rounded-full border ${pressed ? "border-[#111] bg-[#111]" : "border-[#8a8a84]"}`}
+                    />
+                  </motion.button>
                 );
               })}
             </div>
@@ -174,26 +183,34 @@ export function WaitlistSection() {
             </div>
           </div>
 
-          <button
+          <motion.button
             type="submit"
             disabled={submitting}
-            className="press mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-[#f4f4f2] text-sm font-medium text-[#111] hover:bg-white disabled:cursor-wait disabled:opacity-60"
+            whileTap={submitting ? undefined : { scale: 0.98 }}
+            className="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-[#f4f4f2] text-sm font-medium text-[#111] hover:bg-white disabled:cursor-wait disabled:opacity-60"
           >
             {submitting ? "Joining…" : "Join the waitlist"}
-          </button>
+          </motion.button>
 
           <div className="mt-4 min-h-6" aria-live="polite">
-            {status ? (
-              <p
-                className={`rounded-lg border px-3.5 py-3 text-sm leading-6 ${
-                  status.type === "success" ? "border-[#d9d9d3] bg-[#f4f4f2] text-[#111]" : "border-[#6a3030] bg-[#2a1616] text-[#f3d2cc]"
-                }`}
-              >
-                {status.text}
-              </p>
-            ) : null}
+            <AnimatePresence initial={false} mode="wait">
+              {status ? (
+                <motion.p
+                  key={status.text}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                  className={`rounded-lg border px-3.5 py-3 text-sm leading-6 ${
+                    status.type === "success" ? "border-[#d9d9d3] bg-[#f4f4f2] text-[#111]" : "border-[#6a3030] bg-[#2a1616] text-[#f3d2cc]"
+                  }`}
+                >
+                  {status.text}
+                </motion.p>
+              ) : null}
+            </AnimatePresence>
           </div>
-        </form>
+        </Reveal>
       </div>
     </section>
   );
