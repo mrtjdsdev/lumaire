@@ -308,6 +308,22 @@ dialog::backdrop {
   }
 }
 
+/* LetterGlitch hero background (React Bits; component in letter-glitch.jsx). */
+.letter-glitch {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.letter-glitch-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* 3D word drums for the rotor hover effect (see hover-text.tsx).
    splitText consumes the whitespace between words, so restore it. */
 .word-3d + .word-3d {
