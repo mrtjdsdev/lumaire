@@ -7,8 +7,7 @@ import Folder from "@/components/marketing/folder";
  * The product, in four pages. Two pages pair the site's product
  * photographs with a product fact as a caption strip; the other two
  * are paper-style cards. Every claim comes from copy already on this
- * site — including the honest part: the hardware is in development
- * and this site only simulates a panel.
+ * site — including the honest part: the hardware is in development.
  */
 const pieces = [
   {
@@ -55,7 +54,7 @@ const pieces = [
   {
     title: "Where it stands",
     description:
-      "In development. An ESP32-S3 controller is planned; this site simulates an 800 × 480 panel, and no hardware is connected.",
+      "In development. Designed around a simple ESP32-S3-class controller and a prepared-frame pipeline — join the waitlist to hear when displays are ready.",
   },
 ];
 

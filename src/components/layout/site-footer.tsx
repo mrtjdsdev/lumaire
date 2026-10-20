@@ -9,11 +9,7 @@ const explore = [
   { href: "/#waitlist", label: "Waitlist" },
 ];
 
-const tools = [
-  { href: "/device", label: "Device" },
-  { href: "/pair", label: "Pair" },
-  { href: "/architecture", label: "Hardware plan" },
-];
+const tools = [{ href: "/architecture", label: "Hardware plan" }];
 
 export function SiteFooter() {
   return (
@@ -25,7 +21,8 @@ export function SiteFooter() {
             <span className="text-sm font-medium uppercase tracking-[0.16em]">Lumaire</span>
           </Link>
           <p className="mt-5 max-w-sm text-sm leading-6 text-[#4a4a46]">
-            Lumaire is developing e-paper displays for the home.
+            Connected e-paper displays for useful information — reflective, still, and made for the wall. In
+            development.
           </p>
         </div>
         <nav aria-label="Footer">

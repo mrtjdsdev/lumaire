@@ -11,23 +11,51 @@ const points = [
     copy: "Once an image is on the panel, e-paper can hold it without continuously illuminating the display.",
   },
   {
-    title: "A physical panel is not connected",
-    copy: "This site explains the display Lumaire is developing. It does not send an image to hardware.",
+    title: "Holding is free; changing is not",
+    copy: "The panel needs no power to keep an image. The controller, the radio, and the refresh still draw energy — so the device is designed to wake for an update, then go back to sleep.",
   },
 ];
 
 const pipeline = [
-  { step: "01", title: "Image", copy: "A placement is chosen. Fit, fill, and crop travel with the job." },
-  { step: "02", title: "Frame service", copy: "Resize, dither, and pack bytes for the panel. The browser preview stops at an 800 × 480 PNG." },
-  { step: "03", title: "ESP32-S3", copy: "Planned: download the payload, check the hash, and drive the panel over its bus. Not connected here." },
-  { step: "04", title: "Acknowledgement", copy: "The interface can say the image is on a Lumaire display only after the controller agrees." },
+  {
+    step: "01",
+    title: "Choose and compose",
+    copy: "On your phone, pick a photograph or artwork, or compose what you glance at — a calendar, a dashboard. Deeper integrations, Home Assistant included, are what we're building toward, not a shipped feature.",
+  },
+  {
+    step: "02",
+    title: "Prepare the frame",
+    copy: "Software converts your choice into exactly what the panel can show: resized, its colors mapped to the panel's pigments, and dithered so photographs keep their shading. The heavy work happens off the device.",
+  },
+  {
+    step: "03",
+    title: "Send a finished image",
+    copy: "The display receives that prepared image over Wi-Fi — finished pixels, not a web page. A small microcontroller never has to render layouts, fonts, or feeds.",
+  },
+  {
+    step: "04",
+    title: "Refresh, then sleep",
+    copy: "The controller wakes, applies the image, confirms it, and returns to sleep. The picture then holds on its own — no light, no fan, no glow in a dark room.",
+  },
 ];
 
-const firmware = [
-  { title: "Bus", copy: "Firmware would own SPI, or the board’s actual bus, to the e-paper controller." },
-  { title: "Refresh", copy: "Full refresh is the baseline. Partial refresh only if that exact panel supports it cleanly." },
-  { title: "Sleep", copy: "Between updates the controller is planned to sleep, then report state when it wakes. No battery life is claimed." },
-  { title: "Reject", copy: "A payload whose size or checksum does not match should be refused." },
+const tradeoffs = [
+  {
+    title: "Refresh",
+    copy: "A full refresh takes seconds, not milliseconds. Lumaire is for information that changes occasionally — not video, games, or animation. We accept the wait; in exchange, the image can stay.",
+  },
+  {
+    title: "Compute",
+    copy: "A simple microcontroller instead of a single-board computer. Less to power and less to go wrong, because the frame arrives already prepared.",
+  },
+  {
+    title: "Power",
+    copy: "Holding an image costs the panel nothing. Energy goes to waking, receiving, and refreshing — brief, occasional work instead of a screen lit all day. We will publish battery figures only when they are measured.",
+  },
+  {
+    title: "Light",
+    copy: "Color on e-paper is pigment, not emitted light. It will never match a backlit screen for saturation — and it will never glow in a dark room, either.",
+  },
 ];
 
 export function TechnologySection() {
@@ -43,7 +71,9 @@ export function TechnologySection() {
             <HoverText effect="highlight">Engineered for a different kind of screen.</HoverText>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-7 text-[#c8c8c2]">
-            E-paper is a reflective display. It differs from a conventional screen because it uses ambient light, and it can retain a static image without keeping the panel lit.
+            A Lumaire is not a small computer with a screen attached. It is a reflective panel, a simple
+            microcontroller, and a pipeline that does the heavy work before anything reaches the wall — so the
+            device itself can stay simple, and mostly asleep.
           </p>
         </Reveal>
 
@@ -94,15 +124,22 @@ export function TechnologySection() {
         </div>
 
         <Reveal className="mt-8">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">Planned on the controller</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">Trade-offs, chosen on purpose</p>
           <dl className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] sm:grid-cols-2">
-            {firmware.map((item) => (
+            {tradeoffs.map((item) => (
               <div key={item.title} className="bg-[#0c0c0c] px-5 py-5 sm:px-6">
                 <dt className="text-sm font-medium text-[#f4f4f0]">{item.title}</dt>
                 <dd className="mt-2 text-sm leading-6 text-[#b7b7b1]">{item.copy}</dd>
               </div>
             ))}
           </dl>
+        </Reveal>
+
+        <Reveal delay={0.05}>
+          <p className="mt-8 max-w-2xl text-sm leading-6 text-[#9a9a94]">
+            Where this stands: the panel-first design is set. Panel selection, firmware, and the delivery
+            backend are in development — the hardware plan page describes each of them as the plan it is.
+          </p>
         </Reveal>
       </div>
     </section>

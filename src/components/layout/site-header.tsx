@@ -14,13 +14,8 @@ const sectionLinks = [
   { href: "/#product", label: "Product" },
   { href: "/#technology", label: "Technology" },
   { href: "/#vision", label: "Our vision" },
-  { href: "/#waitlist", label: "Waitlist" },
-];
-
-const appLinks = [
-  { href: "/device", label: "Device" },
-  { href: "/pair", label: "Pair" },
   { href: "/architecture", label: "Hardware" },
+  { href: "/#waitlist", label: "Waitlist" },
 ];
 
 export function SiteHeader() {
@@ -29,7 +24,6 @@ export function SiteHeader() {
   const [openPath, setOpenPath] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const open = openPath === pathname;
-  const inApp = appLinks.some((link) => pathname === link.href);
   const { scrollYProgress } = useScroll();
   const progressScaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 28, mass: 0.4 });
 
@@ -90,26 +84,6 @@ export function SiteHeader() {
           </motion.button>
         </div>
       </div>
-      {inApp ? (
-        <nav className="mx-auto hidden h-10 w-full max-w-6xl items-center gap-6 border-t border-[#ecece8] px-6 text-sm sm:px-10 lg:flex" aria-label="Device">
-          {appLinks.map((link) => {
-            const active = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "transition-colors hover:text-ink",
-                  active ? "font-medium text-ink shadow-[inset_0_-2px_0_0_#111111]" : "text-[#5e5e59]",
-                )}
-                aria-current={active ? "page" : undefined}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-      ) : null}
       <AnimatePresence initial={false}>
         {open ? (
           <motion.div
@@ -123,17 +97,6 @@ export function SiteHeader() {
             <nav className="mx-auto flex w-full max-w-6xl flex-col px-6 py-3 sm:px-10" aria-label="Mobile">
               {sectionLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="border-b border-[#ecece8] py-3 text-base" onClick={() => setOpenPath(null)}>
-                  {link.label}
-                </Link>
-              ))}
-              {appLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="border-b border-[#ecece8] py-3 text-base"
-                  aria-current={pathname === link.href ? "page" : undefined}
-                  onClick={() => setOpenPath(null)}
-                >
                   {link.label}
                 </Link>
               ))}

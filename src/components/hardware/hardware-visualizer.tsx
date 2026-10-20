@@ -51,7 +51,7 @@ export function HardwareVisualizer() {
       </VisualizerBoundary>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 border-t border-[#2a2a2a] bg-[#050505]/85 px-4 py-3 backdrop-blur-[2px] sm:px-5">
         <p className="font-mono text-[10px] uppercase leading-5 tracking-[0.14em] text-[#9a9a94]">
-          Every frame of the source video is downsampled to 296 × 167. Each pixel drives one tetrahedron&apos;s color, size, and depth — the same packing idea as an 800 × 480 panel buffer for the ESP32-S3.
+          A study, not a product render: every frame of a source video is downsampled to a 296 × 167 grid, and each point takes its color, size, and depth from a single pixel.
         </p>
       </div>
     </section>

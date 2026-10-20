@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { LandingPage } from "@/components/marketing/landing-page";
 
 const description =
-  "Lumaire brings the flexibility of digital content to the paper-like simplicity of e-paper. Choose what you want to display and make your space your own.";
+  "Lumaire is building connected e-paper displays that bring useful information into a room the way paper does — reflectively and quietly. Calendars, dashboards, photographs, and art, without another glowing screen.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Lumaire — Digital, reimagined" },
+  title: { absolute: "Lumaire — Digital information. A quieter presence." },
   description,
   openGraph: {
-    title: "Lumaire — Digital, reimagined",
+    title: "Lumaire — Digital information. A quieter presence.",
     description,
     siteName: "Lumaire",
   },

@@ -6,9 +6,9 @@ import { Reveal } from "@/components/motion/reveal";
 import { HoverText } from "@/components/text/hover-text";
 
 const models = [
-  { id: 'Wall Hub (10.0")', detail: "10.0 inch, black and white" },
-  { id: 'Kitchen Display (7.5")', detail: "7.5 inch, tri-color" },
-  { id: 'Gallery Frame (13.3")', detail: "13.3 inch, full color" },
+  { id: 'Wall Hub (10.0")', detail: "10.0 inch · black and white · dashboards & room control" },
+  { id: 'Kitchen Display (7.5")', detail: "7.5 inch · tri-color · calendars & lists" },
+  { id: 'Gallery Frame (13.3")', detail: "13.3 inch · full color · art & photography" },
 ] as const;
 
 type Status = { type: "success" | "error"; text: string } | null;
@@ -85,10 +85,12 @@ export function WaitlistSection() {
             <HoverText effect="wave">{"Be part of what's next."}</HoverText>
           </h2>
           <p className="mt-6 max-w-md text-base leading-7 text-[#d6d6d0]">
-            Get updates on Lumaire&apos;s development, product launch, and early access opportunities.
+            Lumaire is in development. Join the waitlist for progress updates, launch news, and early access
+            opportunities as displays become ready.
           </p>
           <p className="mt-6 max-w-md text-sm leading-6 text-[#b7b7b1]">
-            Choosing a model records interest only. It is not an order, and no payment is taken. Hardware is still in development.
+            Choosing a model records interest only. It is not an order, no payment is taken, and final
+            specifications will be shared as they are confirmed.
           </p>
         </Reveal>
 
