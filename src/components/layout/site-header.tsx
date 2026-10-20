@@ -1,0 +1,131 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useId, useState } from "react";
+import { usePathname } from "next/navigation";
+import { Wordmark } from "@/components/brand/wordmark";
+import { cn } from "@/lib/cn";
+
+const sectionLinks = [
+  { href: "/#product", label: "Product" },
+  { href: "/#technology", label: "Technology" },
+  { href: "/#vision", label: "Our vision" },
+  { href: "/#waitlist", label: "Waitlist" },
+];
+
+const appLinks = [
+  { href: "/device", label: "Device" },
+  { href: "/pair", label: "Pair" },
+  { href: "/architecture", label: "Hardware" },
+];
+
+export function SiteHeader() {
+  const pathname = usePathname();
+  const menuId = useId();
+  const [openPath, setOpenPath] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const open = openPath === pathname;
+  const inApp = appLinks.some((link) => pathname === link.href);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpenPath(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  return (
+    <header
+      className={cn(
+        "sticky top-0 z-40 border-b bg-[#f5f5f3]/85 backdrop-blur-md transition-[border-color,box-shadow] duration-300",
+        scrolled ? "border-[#deded8] shadow-[0_8px_30px_rgba(17,17,17,0.05)]" : "border-transparent",
+      )}
+    >
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:bg-card focus:px-3 focus:py-2"
+      >
+        Skip to content
+      </a>
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-6 sm:px-10">
+        <Wordmark />
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+          {sectionLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="nav-link text-sm text-[#3f3f3c] transition-colors hover:text-ink">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="flex items-center gap-2">
+          <Link href="/#waitlist" aria-label="Join the waitlist" className="press inline-flex h-10 items-center rounded-full bg-ink px-4 text-sm text-paper shadow-[0_1px_2px_rgba(17,17,17,0.18)] hover:bg-[#2a2a2a] lg:hidden">
+            Waitlist
+          </Link>
+          <Link href="/#waitlist" className="press hidden h-10 items-center rounded-full bg-ink px-5 text-sm text-paper shadow-[0_1px_2px_rgba(17,17,17,0.18)] hover:bg-[#2a2a2a] lg:inline-flex">
+            Join the waitlist
+          </Link>
+          <button
+            type="button"
+            className="press inline-flex h-10 items-center rounded-full border border-[#deded8] bg-white/60 px-4 text-sm lg:hidden"
+            aria-expanded={open}
+            aria-controls={menuId}
+            onClick={() => setOpenPath(open ? null : pathname)}
+          >
+            {open ? "Close" : "Menu"}
+          </button>
+        </div>
+      </div>
+      {inApp ? (
+        <nav className="mx-auto hidden h-10 w-full max-w-6xl items-center gap-6 border-t border-[#ecece8] px-6 text-sm sm:px-10 lg:flex" aria-label="Device">
+          {appLinks.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "transition-colors hover:text-ink",
+                  active ? "font-medium text-ink shadow-[inset_0_-2px_0_0_#111111]" : "text-[#5e5e59]",
+                )}
+                aria-current={active ? "page" : undefined}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
+      ) : null}
+      <div id={menuId} hidden={!open} className="border-t border-[#deded8] bg-[#f5f5f3] lg:hidden">
+        <nav className="mx-auto flex w-full max-w-6xl flex-col px-6 py-3 sm:px-10" aria-label="Mobile">
+          {sectionLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="border-b border-[#ecece8] py-3 text-base" onClick={() => setOpenPath(null)}>
+              {link.label}
+            </Link>
+          ))}
+          {appLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="border-b border-[#ecece8] py-3 text-base"
+              aria-current={pathname === link.href ? "page" : undefined}
+              onClick={() => setOpenPath(null)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link href="/#waitlist" className="press mt-4 inline-flex h-12 items-center justify-center rounded-full bg-ink text-sm text-paper" onClick={() => setOpenPath(null)}>
+            Join the waitlist
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
