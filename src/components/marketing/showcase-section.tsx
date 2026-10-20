@@ -1,0 +1,64 @@
+import Image from "next/image";
+import { Reveal } from "@/components/motion/reveal";
+
+const shots = [
+  {
+    src: "/images/lumaire-calendar.jpg",
+    alt: "Framed Lumaire display on a desk by a window, showing an April 2025 calendar with the day's events and weather",
+    title: "Calendar",
+    detail: "The day at a glance",
+  },
+  {
+    src: "/images/lumaire-mountain-lake.jpg",
+    alt: "Framed Lumaire display on a desk by a window, showing a black-and-white photograph of a mountain lake",
+    title: "Mountain Lake",
+    detail: "Photographs, kept in view",
+  },
+] as const;
+
+export function ShowcaseSection() {
+  return (
+    <section className="border-b border-[#242424] bg-[#0c0c0c] text-[#f4f4f0]">
+      <div className="mx-auto w-full max-w-6xl px-6 pb-24 sm:px-10 sm:pb-32">
+        <Reveal className="flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-2xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#9a9a94]">
+              In your space
+            </p>
+            <h2 className="mt-4 text-[clamp(2.1rem,4vw,3.4rem)] font-medium leading-[1.05] tracking-[-0.04em]">
+              Your world. On display.
+            </h2>
+          </div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#9a9a94]">
+            Product imagery
+          </p>
+        </Reveal>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          {shots.map((shot, index) => (
+            <Reveal key={shot.src} delay={index * 0.1}>
+              <figure className="group overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#111] shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+                <div className="overflow-hidden">
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    width={1024}
+                    height={900}
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    className="h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+                <figcaption className="flex items-baseline justify-between gap-4 px-5 py-4">
+                  <span className="text-sm font-medium tracking-[-0.01em]">{shot.title}</span>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#9a9a94]">
+                    {shot.detail}
+                  </span>
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
