@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/motion/reveal";
+import { HoverText } from "@/components/text/hover-text";
 
 const steps = [
   {
@@ -35,7 +36,7 @@ export function ProductSection() {
             The product
           </p>
           <h2 className="mt-4 max-w-[16ch] text-[clamp(2.1rem,4vw,3.4rem)] font-medium leading-[1.05] tracking-[-0.04em]">
-            Digital convenience. A different kind of display.
+            <HoverText effect="highlight">Digital convenience. A different kind of display.</HoverText>
           </h2>
           <p className="mt-6 max-w-xl text-base leading-7 text-[#c8c8c2]">
             Traditional screens produce their own light. E-paper reflects ambient light to create a more paper-like viewing experience. Lumaire is developing a connected display experience that makes choosing and changing digital content simple.
@@ -66,7 +67,9 @@ export function ProductSection() {
           {steps.map((step, index) => (
             <Reveal as="li" key={step.number} delay={index * 0.09} className="relative">
               <p className="relative z-10 inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-[#2a2a2a] bg-[#111] px-3 font-mono text-sm text-[#f4f4f0]">{step.number}</p>
-              <h3 className="mt-6 text-2xl font-medium tracking-[-0.03em]">{step.title}</h3>
+              <h3 className="mt-6 text-2xl font-medium tracking-[-0.03em]">
+                <HoverText effect="rain">{step.title}</HoverText>
+              </h3>
               <p className="mt-3 max-w-xs text-sm leading-6 text-[#b7b7b1]">{step.copy}</p>
             </Reveal>
           ))}

@@ -308,6 +308,54 @@ dialog::backdrop {
   }
 }
 
+/* 3D word drums for the rotor hover effect (see hover-text.tsx).
+   splitText consumes the whitespace between words, so restore it. */
+.word-3d + .word-3d {
+  margin-left: 0.24em;
+}
+
+.word-3d {
+  perspective: 1000px;
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50% 1rem;
+  font-style: normal;
+}
+
+.word-3d .face,
+.word-3d .face-front {
+  font-style: normal;
+}
+
+.word-3d .face {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+
+.word-3d .face-front {
+  opacity: 1;
+}
+
+.word-3d .face-bottom {
+  top: 100%;
+  transform-origin: 50% 0%;
+  transform: rotateX(90deg);
+}
+
+.word-3d .face-top {
+  bottom: 100%;
+  transform-origin: 50% 100%;
+  transform: rotateX(-90deg);
+}
+
+.word-3d .face-back {
+  top: 0;
+  transform-origin: 50% 50%;
+  transform: translateZ(2.5rem) rotateX(-180deg);
+}
+
 @keyframes epaper {
   0% {
     filter: brightness(1.35) contrast(0.85);

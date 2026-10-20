@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/motion/reveal";
+import { HoverText } from "@/components/text/hover-text";
 
 const points = [
   {
@@ -39,7 +40,7 @@ export function TechnologySection() {
             Technology
           </p>
           <h2 className="mt-4 max-w-[18ch] text-[clamp(2.1rem,4vw,3.4rem)] font-medium leading-[1.05] tracking-[-0.04em]">
-            Engineered for a different kind of screen.
+            <HoverText effect="highlight">Engineered for a different kind of screen.</HoverText>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-7 text-[#c8c8c2]">
             E-paper is a reflective display. It differs from a conventional screen because it uses ambient light, and it can retain a static image without keeping the panel lit.

@@ -3,6 +3,7 @@
 import { useId, useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Reveal } from "@/components/motion/reveal";
+import { HoverText } from "@/components/text/hover-text";
 
 const models = [
   { id: 'Wall Hub (10.0")', detail: "10.0 inch, black and white" },
@@ -81,7 +82,7 @@ export function WaitlistSection() {
             Waitlist
           </p>
           <h2 className="mt-4 max-w-[12ch] text-[clamp(2.1rem,4vw,3.4rem)] font-medium leading-[1.05] tracking-[-0.04em]">
-            Be part of what&apos;s next.
+            <HoverText effect="wave">{"Be part of what's next."}</HoverText>
           </h2>
           <p className="mt-6 max-w-md text-base leading-7 text-[#d6d6d0]">
             Get updates on Lumaire&apos;s development, product launch, and early access opportunities.

@@ -5,6 +5,7 @@ import { useEffect, useId, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useSpring } from "motion/react";
 import { Wordmark } from "@/components/brand/wordmark";
+import { HoverText } from "@/components/text/hover-text";
 import { cn } from "@/lib/cn";
 
 const MotionLink = motion.create(Link);
@@ -66,7 +67,7 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
           {sectionLinks.map((link) => (
             <Link key={link.href} href={link.href} className="nav-link text-sm text-[#3f3f3c] transition-colors hover:text-ink">
-              {link.label}
+              <HoverText effect="split">{link.label}</HoverText>
             </Link>
           ))}
         </nav>

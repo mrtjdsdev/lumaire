@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HardwareVisualizer } from "@/components/hardware/hardware-visualizer";
 import { Reveal } from "@/components/motion/reveal";
+import { HoverText } from "@/components/text/hover-text";
 import { buttonClass } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export default function ArchitecturePage() {
             Architecture
           </p>
           <h1 className="mt-4 max-w-[16ch] text-[clamp(2.2rem,5vw,3.8rem)] font-medium leading-[1.02] tracking-[-0.04em]">
-            From this browser to a real frame.
+            <HoverText effect="explode">From this browser to a real frame.</HoverText>
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-7 text-[#c8c8c2]">
             A physical Lumaire display is an ESP32-S3 on the back of an e-paper panel. The software boundary for that

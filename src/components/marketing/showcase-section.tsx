@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
+import { HoverText } from "@/components/text/hover-text";
 
 const shots = [
   {
@@ -26,7 +27,7 @@ export function ShowcaseSection() {
               In your space
             </p>
             <h2 className="mt-4 text-[clamp(2.1rem,4vw,3.4rem)] font-medium leading-[1.05] tracking-[-0.04em]">
-              Your world. On display.
+              <HoverText effect="highlight">Your world. On display.</HoverText>
             </h2>
           </div>
           <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#9a9a94]">

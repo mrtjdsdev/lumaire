@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/motion/reveal";
+import { HoverText } from "@/components/text/hover-text";
 
 export function VisionSection() {
   return (
@@ -10,7 +11,7 @@ export function VisionSection() {
             Our vision
           </p>
           <h2 className="mt-4 text-[clamp(2.1rem,4vw,3.4rem)] font-medium leading-[1.05] tracking-[-0.04em]">
-            Technology that belongs in your space.
+            <HoverText effect="highlight">Technology that belongs in your space.</HoverText>
           </h2>
           <p className="mt-6 max-w-md text-base leading-7 text-[#c8c8c2]">
             A more considered way to bring digital imagery into your home.
