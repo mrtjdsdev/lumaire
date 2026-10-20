@@ -6,14 +6,10 @@ const shots = [
   {
     src: "/images/lumaire-calendar.jpg",
     alt: "Framed Lumaire display on a desk by a window, showing an April 2025 calendar with the day's events and weather",
-    title: "Calendar",
-    detail: "The day at a glance",
   },
   {
     src: "/images/lumaire-mountain-lake.jpg",
     alt: "Framed Lumaire display on a desk by a window, showing a black-and-white photograph of a mountain lake",
-    title: "Mountain Lake",
-    detail: "Photographs, kept in view",
   },
 ] as const;
 
@@ -49,12 +45,6 @@ export function ShowcaseSection() {
                     className="h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                   />
                 </div>
-                <figcaption className="flex items-baseline justify-between gap-4 px-5 py-4">
-                  <span className="text-sm font-medium tracking-[-0.01em]">{shot.title}</span>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#9a9a94]">
-                    {shot.detail}
-                  </span>
-                </figcaption>
               </figure>
             </Reveal>
           ))}
