@@ -3,7 +3,7 @@ import { Reveal } from "@/components/motion/reveal";
 type QuoteProps = {
   quote: string;
   author: string;
-  role: string;
+  role?: string;
   className?: string;
 };
 
@@ -19,7 +19,8 @@ export function Quote({ quote, author, role, className = "" }: QuoteProps) {
         &ldquo;{quote}&rdquo;
       </blockquote>
       <figcaption className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">
-        {author} <span className="text-[#6f6f6a]">· {role}</span>
+        {author}
+        {role ? <span className="text-[#6f6f6a]"> · {role}</span> : null}
       </figcaption>
     </Reveal>
   );
