@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/motion/reveal";
 import { HoverText } from "@/components/text/hover-text";
+import { Quote } from "@/components/marketing/quote";
 
 const points = [
   {
@@ -113,7 +114,14 @@ export function TechnologySection() {
           </ol>
         </div>
 
-        <div className="mt-8 grid gap-px overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#2a2a2a] md:grid-cols-4">
+        <Quote
+          className="mt-14"
+          quote="I don’t believe architecture has to speak too much. It should remain silent and let nature in the guise of sunlight and wind."
+          author="Tadao Ando"
+          role="Architect"
+        />
+
+        <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#2a2a2a] md:grid-cols-4">
           {pipeline.map((item, index) => (
             <Reveal as="article" key={item.step} delay={index * 0.07} className="bg-[#101010] p-5 transition-colors hover:bg-[#141414] sm:p-6">
               <p className="font-mono text-[11px] text-[#9a9a94]">{item.step}</p>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { HoverText } from "@/components/text/hover-text";
+import { Quote } from "@/components/marketing/quote";
 
 const shots = [
   {
@@ -49,6 +50,13 @@ export function ShowcaseSection() {
             </Reveal>
           ))}
         </div>
+
+        <Quote
+          className="mt-16"
+          quote="Space and light and order. Those are the things that men need just as much as they need bread or a place to sleep."
+          author="Le Corbusier"
+          role="Architect"
+        />
       </div>
     </section>
   );

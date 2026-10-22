@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/motion/reveal";
 import { HoverText } from "@/components/text/hover-text";
+import { Quote } from "@/components/marketing/quote";
 
 const steps = [
   {
@@ -45,6 +46,12 @@ export function ProductSection() {
             </span>
           ))}
         </Reveal>
+        <Quote
+          className="mt-16"
+          quote="Good design is as little design as possible."
+          author="Dieter Rams"
+          role="Industrial designer"
+        />
       </div>
       <div className="mx-auto w-full max-w-6xl px-6 pb-24 sm:px-10 sm:pb-32">
         <ol className="grid gap-4 md:grid-cols-3">
