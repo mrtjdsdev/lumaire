@@ -14,6 +14,7 @@ const sectionLinks = [
   { href: "/#product", label: "Product" },
   { href: "/#technology", label: "Technology" },
   { href: "/#vision", label: "Our vision" },
+  { href: "/founders", label: "Founders" },
   { href: "/architecture", label: "Hardware" },
   { href: "/#waitlist", label: "Waitlist" },
 ];

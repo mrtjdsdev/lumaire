@@ -6,6 +6,7 @@ const explore = [
   { href: "/#product", label: "Product" },
   { href: "/#technology", label: "Technology" },
   { href: "/#vision", label: "Our vision" },
+  { href: "/founders", label: "Founders" },
   { href: "/#waitlist", label: "Waitlist" },
 ];
 
