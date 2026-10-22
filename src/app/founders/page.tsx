@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { HoverText } from "@/components/text/hover-text";
+import TerraDusk from "@/components/marketing/terra-dusk";
 
 export const metadata: Metadata = {
   title: "Founders",
@@ -32,8 +33,18 @@ const founders = [
 
 export default function FoundersPage() {
   return (
-    <article className="bg-[#090909] text-[#f4f4f0]">
-      <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:px-10 sm:py-14">
+    <article className="relative isolate overflow-hidden bg-[#02040a] text-[#f4f4f0]">
+      {/* Terra Dusk globe backdrop: a dusk-lit Earth behind the header,
+          fading into the page. Drag/hover are off so it never competes
+          with reading or clicking; it respect prefers-reduced-motion. */}
+      <div className="absolute inset-x-0 top-0 h-[1080px]" aria-hidden="true">
+        <TerraDusk background="#02040a" size={920} stars={6} speed={6} drag={false} hover={0} sun="fixed" daylight={52} />
+      </div>
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1080px] bg-[linear-gradient(180deg,rgba(2,4,10,0.58)_0%,rgba(2,4,10,0.52)_42%,rgba(2,4,10,0.9)_78%,#02040a_100%)]"
+        aria-hidden="true"
+      />
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-10 sm:px-10 sm:py-14">
         <Reveal as="header" className="max-w-3xl">
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#9a9a94]">
             <span className="mr-3 text-[#f4f4f0]">About</span>
