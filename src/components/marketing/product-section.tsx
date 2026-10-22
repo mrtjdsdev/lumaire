@@ -22,26 +22,26 @@ const steps = [
 
 export function ProductSection() {
   return (
-    <section id="product" className="scroll-mt-24 border-b border-[#242424] bg-[#0c0c0c] text-[#f4f4f0]">
+    <section id="product" className="scroll-mt-24 border-b border-[#e3e3da] bg-[#f7f7f4] text-[#151511]">
       <div className="mx-auto w-full max-w-6xl px-6 py-24 sm:px-10 sm:py-32">
         <Reveal>
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#9a9a94]">
-            <span className="mr-3 text-[#f4f4f0]">01</span>
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#77776e]">
+            <span className="mr-3 text-[#151511]">01</span>
             The product
           </p>
           <h2 className="mt-4 max-w-[16ch] text-[clamp(2.1rem,4vw,3.4rem)] font-medium leading-[1.05] tracking-[-0.04em]">
             <HoverText effect="highlight">Useful information, without another glowing screen.</HoverText>
           </h2>
-          <p className="mt-6 max-w-xl text-base leading-7 text-[#c8c8c2]">
+          <p className="mt-6 max-w-xl text-base leading-7 text-[#45453f]">
             Most connected displays are small televisions: they light up, and then they ask to be looked at. A
             Lumaire is closer to a framed page. It shows a calendar, a dashboard, a photograph — then simply
             stays there, readable in the room&rsquo;s own light, until you choose something new.
           </p>
         </Reveal>
         <Reveal delay={0.08} className="mt-10 flex flex-wrap items-center gap-2">
-          <span className="mr-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">Made for</span>
+          <span className="mr-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[#77776e]">Made for</span>
           {["Calendars & schedules", "Room dashboards", "Photographs & art", "Lists that stay put"].map((item) => (
-            <span key={item} className="rounded-full border border-[#2e2e2e] bg-[#111] px-3.5 py-1.5 text-sm text-[#d6d6d0]">
+            <span key={item} className="rounded-full border border-[#dcdcd2] bg-white px-3.5 py-1.5 text-sm text-[#3a3a36]">
               {item}
             </span>
           ))}
@@ -51,17 +51,18 @@ export function ProductSection() {
           quote="Good design is as little design as possible."
           author="Dieter Rams"
           role="Industrial designer"
+          onLight
         />
       </div>
       <div className="mx-auto w-full max-w-6xl px-6 pb-24 sm:px-10 sm:pb-32">
         <ol className="grid gap-4 md:grid-cols-3">
           {steps.map((step, index) => (
-            <Reveal as="li" key={step.number} delay={index * 0.09} className="lift rounded-3xl border border-[#262626] bg-[#101010] p-6 hover:border-[#3a3a3a] sm:p-7">
-              <p className="inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-[#2f2f2f] bg-[#161616] px-3 font-mono text-sm text-[#f4f4f0]">{step.number}</p>
+            <Reveal as="li" key={step.number} delay={index * 0.09} className="lift rounded-3xl border border-[#e0e0d6] bg-white p-6 shadow-[0_10px_30px_rgba(17,17,17,0.04)] hover:border-[#c9c9bc] sm:p-7">
+              <p className="inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-[#e0e0d6] bg-[#f4f4ee] px-3 font-mono text-sm text-[#151511]">{step.number}</p>
               <h3 className="mt-6 text-2xl font-medium tracking-[-0.03em]">
                 <HoverText effect="rain">{step.title}</HoverText>
               </h3>
-              <p className="mt-3 max-w-xs text-sm leading-6 text-[#b7b7b1]">{step.copy}</p>
+              <p className="mt-3 max-w-xs text-sm leading-6 text-[#55554f]">{step.copy}</p>
             </Reveal>
           ))}
         </ol>

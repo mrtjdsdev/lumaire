@@ -33,7 +33,7 @@ const founders = [
 
 export default function FoundersPage() {
   return (
-    <article className="relative isolate overflow-hidden bg-[#02040a] text-[#f4f4f0]">
+    <article className="relative isolate overflow-hidden bg-[#f7f7f4] text-[#151511]">
       {/* Terra Dusk globe backdrop: a dusk-lit Earth behind the header,
           fading into the page. Dragging is off and it sits behind the
           content, but the globe gently tilts to follow the cursor;
@@ -42,11 +42,11 @@ export default function FoundersPage() {
         <TerraDusk background="#02040a" size={920} stars={6} speed={6} drag={false} hover={7} sun="fixed" daylight={52} />
       </div>
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1080px] bg-[linear-gradient(180deg,rgba(2,4,10,0.58)_0%,rgba(2,4,10,0.52)_42%,rgba(2,4,10,0.9)_78%,#02040a_100%)]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1080px] bg-[linear-gradient(180deg,rgba(2,4,10,0.58)_0%,rgba(2,4,10,0.52)_42%,rgba(2,4,10,0.62)_72%,rgba(247,247,244,0.92)_92%,#f7f7f4_100%)]"
         aria-hidden="true"
       />
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-10 sm:px-10 sm:py-14">
-        <Reveal as="header" className="max-w-3xl">
+        <Reveal as="header" className="max-w-3xl text-[#f4f4f0]">
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#9a9a94]">
             <span className="mr-3 text-[#f4f4f0]">About</span>
             The founders
@@ -80,24 +80,24 @@ export default function FoundersPage() {
               as="article"
               key={founder.name}
               delay={index * 0.08}
-              className="lift rounded-3xl border border-[#2a2a2a] bg-[#101010] p-6 hover:border-[#3a3a3a] sm:p-7"
+              className="lift rounded-3xl border border-[#e0e0d6] bg-white p-6 shadow-[0_14px_36px_rgba(17,17,17,0.07)] hover:border-[#c9c9bc] sm:p-7"
             >
               <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#a58a5f]">{founder.meta}</p>
               <h2 className="mt-3 text-2xl font-medium tracking-[-0.03em]">{founder.name}</h2>
-              <p className="mt-2 font-mono text-[11px] uppercase leading-5 tracking-[0.14em] text-[#9a9a94]">
+              <p className="mt-2 font-mono text-[11px] uppercase leading-5 tracking-[0.14em] text-[#77776e]">
                 {founder.role}
               </p>
-              <p className="mt-4 text-sm leading-6 text-[#b7b7b1]">{founder.bio}</p>
+              <p className="mt-4 text-sm leading-6 text-[#55554f]">{founder.bio}</p>
             </Reveal>
           ))}
         </div>
 
-        <Reveal as="section" className="mt-8 rounded-3xl border border-[#2a2a2a] bg-[#0c0c0c] p-6 sm:p-8">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">What unites us</p>
-          <blockquote className="accent-serif mt-5 max-w-3xl text-[1.65rem] leading-snug text-[#f4f4f0] sm:text-[1.9rem]">
+        <Reveal as="section" className="mt-8 rounded-3xl border border-[#e0e0d6] bg-white p-6 shadow-[0_14px_36px_rgba(17,17,17,0.05)] sm:p-8">
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#77776e]">What unites us</p>
+          <blockquote className="accent-serif mt-5 max-w-3xl text-[1.65rem] leading-snug text-[#141412] sm:text-[1.9rem]">
             &ldquo;We believe the future should illuminate our lives, not demand our attention.&rdquo;
           </blockquote>
-          <p className="mt-5 max-w-2xl text-sm leading-7 text-[#b7b7b1]">
+          <p className="mt-5 max-w-2xl text-sm leading-7 text-[#55554f]">
             Beyond our individual strengths, we share a deep belief in entrepreneurship as a way to
             challenge the status quo, solve meaningful problems, and create something lasting. Lumaire is
             the result of that shared ambition: three different perspectives working toward one vision of
@@ -105,8 +105,8 @@ export default function FoundersPage() {
           </p>
         </Reveal>
 
-        <Reveal as="section" className="mt-8 rounded-3xl border border-[#2a2a2a] bg-[#050505] p-6 sm:p-8">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">Invest</p>
+        <Reveal as="section" className="mt-8 rounded-3xl border border-[#151511] bg-[#111111] p-6 text-[#f4f4f0] shadow-[0_20px_50px_rgba(17,17,17,0.18)] sm:p-8">
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#b7b7b1]">Invest</p>
           <h2 className="mt-4 text-2xl font-medium tracking-[-0.03em] sm:text-3xl">
             Interested in investing in us and our product?
           </h2>

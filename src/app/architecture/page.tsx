@@ -65,17 +65,17 @@ const tradeoffs = [
 
 export default function ArchitecturePage() {
   return (
-    <article className="bg-[#090909] text-[#f4f4f0]">
+    <article className="bg-[#f7f7f4] text-[#151511]">
       <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:px-10 sm:py-14">
         <Reveal as="header" className="max-w-3xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#9a9a94]">
-            <span className="mr-3 text-[#f4f4f0]">HW</span>
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#77776e]">
+            <span className="mr-3 text-[#151511]">HW</span>
             Architecture
           </p>
           <h1 className="mt-4 max-w-[16ch] text-[clamp(2.2rem,5vw,3.8rem)] font-medium leading-[1.02] tracking-[-0.04em]">
             <HoverText effect="explode">The hardware, honestly.</HoverText>
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-[#c8c8c2]">
+          <p className="mt-5 max-w-2xl text-base leading-7 text-[#45453f]">
             A Lumaire display is a reflective e-paper panel driven by a simple microcontroller — an
             ESP32-S3-class controller is our current plan — receiving finished images wirelessly. This page
             describes the architecture we are building and, just as plainly, what does not exist yet.
@@ -87,7 +87,7 @@ export default function ArchitecturePage() {
         </Reveal>
 
         <Reveal as="nav" delay={0.05} className="mt-8 flex flex-wrap items-center gap-2" aria-label="On this page">
-          <span className="mr-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">On this page</span>
+          <span className="mr-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[#77776e]">On this page</span>
           {[
             { href: "#standing", label: "Where it stands" },
             { href: "#image-path", label: "Image path" },
@@ -98,70 +98,70 @@ export default function ArchitecturePage() {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full border border-[#2e2e2e] bg-[#111] px-3.5 py-1.5 text-sm text-[#d6d6d0] transition-colors hover:border-[#8a8a84] hover:text-[#f4f4f0]"
+              className="rounded-full border border-[#dcdcd2] bg-white px-3.5 py-1.5 text-sm text-[#3a3a36] transition-colors hover:border-[#8a8a80] hover:text-[#151511]"
             >
               {item.label}
             </a>
           ))}
         </Reveal>
 
-        <Reveal as="section" id="standing" className="mt-14 scroll-mt-28 grid gap-px overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-2">
-          <div className="bg-[#101010] p-6 sm:p-8">
+        <Reveal as="section" id="standing" className="mt-14 scroll-mt-28 grid gap-px overflow-hidden rounded-3xl border border-[#e0e0d6] bg-[#e0e0d6] lg:grid-cols-2">
+          <div className="bg-white p-6 sm:p-8">
             <h2 className="text-xl font-medium tracking-[-0.03em]">Where development stands</h2>
-            <ul className="mt-5 space-y-3 text-sm leading-6 text-[#b7b7b1]">
+            <ul className="mt-5 space-y-3 text-sm leading-6 text-[#55554f]">
               {standing.map((item) => (
-                <li key={item} className="border-l border-[#2a2a2a] pl-3">
+                <li key={item} className="border-l border-[#e0e0d6] pl-3">
                   {item}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="bg-[#0c0c0c] p-6 sm:p-8">
+          <div className="bg-white p-6 sm:p-8">
             <h2 className="text-xl font-medium tracking-[-0.03em]">The idea in one paragraph</h2>
-            <p className="mt-4 text-sm leading-7 text-[#b7b7b1]">
+            <p className="mt-4 text-sm leading-7 text-[#55554f]">
               Conventional smart displays put a small computer behind glass and keep it awake so the picture
               stays on. We invert that. Software off the device turns whatever you choose — a photograph, a
               calendar, a dashboard — into the exact frame a specific e-paper panel can show. The display
               itself only has to receive that frame, put it up, and go back to sleep. The image stays because
               the surface holds it, not because anything keeps powering it.
             </p>
-            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-[#6f6f6a]">
+            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-[#8a8a80]">
               Do the work once, upstream — not forever, on the wall
             </p>
           </div>
         </Reveal>
 
         <Reveal as="section" id="image-path" className="mt-8 scroll-mt-28">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">The path an image will take</p>
-          <ol className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] sm:grid-cols-2 lg:grid-cols-4">
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#77776e]">The path an image will take</p>
+          <ol className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#e0e0d6] bg-[#e0e0d6] sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
-              <li key={step.title} className="bg-[#101010] p-5 sm:p-6">
-                <p className="font-mono text-[11px] text-[#9a9a94]">0{index + 1}</p>
+              <li key={step.title} className="bg-white p-5 sm:p-6">
+                <p className="font-mono text-[11px] text-[#77776e]">0{index + 1}</p>
                 <h3 className="mt-3 text-lg font-medium tracking-[-0.03em]">{step.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-[#b7b7b1]">{step.copy}</p>
+                <p className="mt-2 text-sm leading-6 text-[#55554f]">{step.copy}</p>
               </li>
             ))}
           </ol>
         </Reveal>
 
-        <Reveal as="section" id="delivery" className="mt-8 scroll-mt-28 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="bg-[#101010] p-6 sm:p-8">
+        <Reveal as="section" id="delivery" className="mt-8 scroll-mt-28 grid gap-px overflow-hidden rounded-2xl border border-[#e0e0d6] bg-[#e0e0d6] lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="bg-white p-6 sm:p-8">
             <h2 className="text-xl font-medium tracking-[-0.03em]">Delivery, kept simple</h2>
-            <p className="mt-4 text-sm leading-7 text-[#b7b7b1]">
+            <p className="mt-4 text-sm leading-7 text-[#55554f]">
               Because the frame arrives finished, the device never renders layouts, fonts, or live feeds. Its
               whole job is to fetch a prepared image, check that it arrived intact, refresh the panel, and
               confirm. Anything that fails the check is refused. That smallness is the point: it is what lets
               the controller be simple, inexpensive to run, and asleep almost all of the time.
             </p>
-            <p className="mt-3 text-sm leading-7 text-[#b7b7b1]">
+            <p className="mt-3 text-sm leading-7 text-[#55554f]">
               It also means image quality is decided once, upstream, where there is power and time to do the
               conversion carefully — resizing, mapping colors to the panel&rsquo;s pigments, and dithering for
               that specific surface.
             </p>
           </div>
-          <div className="bg-[#0c0c0c] p-6 sm:p-8">
+          <div className="bg-white p-6 sm:p-8">
             <h2 className="text-xl font-medium tracking-[-0.03em]">Pairing and ownership, as planned</h2>
-            <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-6 text-[#b7b7b1]">
+            <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-6 text-[#55554f]">
               <li>The controller boots, joins Wi-Fi, and shows a one-time code on the panel itself.</li>
               <li>The owner enters that code in their own account — the display and the account are bound together.</li>
               <li>A backend issues a credential that lives on the device, never in a web page.</li>
@@ -171,30 +171,30 @@ export default function ArchitecturePage() {
         </Reveal>
 
         <Reveal as="section" className="mt-8">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">Firmware owns</p>
-          <dl className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] sm:grid-cols-2 lg:grid-cols-5">
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#77776e]">Firmware owns</p>
+          <dl className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#e0e0d6] bg-[#e0e0d6] sm:grid-cols-2 lg:grid-cols-5">
             {firmware.map((item) => (
-              <div key={item.title} className="bg-[#0c0c0c] px-5 py-5">
-                <dt className="text-sm font-medium text-[#f4f4f0]">{item.title}</dt>
-                <dd className="mt-2 text-sm leading-6 text-[#b7b7b1]">{item.copy}</dd>
+              <div key={item.title} className="bg-white px-5 py-5">
+                <dt className="text-sm font-medium text-[#151511]">{item.title}</dt>
+                <dd className="mt-2 text-sm leading-6 text-[#55554f]">{item.copy}</dd>
               </div>
             ))}
           </dl>
         </Reveal>
 
         <Reveal as="section" id="tradeoffs" className="mt-8 scroll-mt-28">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">Trade-offs, stated plainly</p>
-          <dl className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] sm:grid-cols-2">
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#77776e]">Trade-offs, stated plainly</p>
+          <dl className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#e0e0d6] bg-[#e0e0d6] sm:grid-cols-2">
             {tradeoffs.map((item) => (
-              <div key={item.title} className="bg-[#0c0c0c] px-5 py-5 sm:px-6">
-                <dt className="text-sm font-medium text-[#f4f4f0]">{item.title}</dt>
-                <dd className="mt-2 text-sm leading-6 text-[#b7b7b1]">{item.copy}</dd>
+              <div key={item.title} className="bg-white px-5 py-5 sm:px-6">
+                <dt className="text-sm font-medium text-[#151511]">{item.title}</dt>
+                <dd className="mt-2 text-sm leading-6 text-[#55554f]">{item.copy}</dd>
               </div>
             ))}
           </dl>
         </Reveal>
 
-        <Reveal as="section" id="before" className="mt-8 scroll-mt-28 rounded-3xl border border-[#2a2a2a] bg-[#050505] p-6 sm:p-8">
+        <Reveal as="section" id="before" className="mt-8 scroll-mt-28 rounded-3xl border border-[#151511] bg-[#111111] p-6 text-[#f4f4f0] shadow-[0_20px_50px_rgba(17,17,17,0.16)] sm:p-8">
           <h2 className="text-xl font-medium tracking-[-0.03em]">Before anyone can hang one up</h2>
           <ul className="mt-4 space-y-3 text-sm leading-7 text-[#b7b7b1]">
             <li>Choose the e-paper modules and confirm — then publish — their resolutions, dimensions, and refresh behavior.</li>
