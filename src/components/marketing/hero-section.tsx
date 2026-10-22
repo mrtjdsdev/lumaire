@@ -14,7 +14,7 @@ export function HeroSection() {
         </Reveal>
         <Reveal as="div" delay={0.08} y={22}>
           <h1 className="mt-6 max-w-[9em] text-[clamp(2.6rem,8.5vw,6.4rem)] font-medium leading-[0.92] tracking-[-0.045em] text-[#f7f7f4]">
-            Take back your <em className="accent-serif">attention.</em>
+            When digital meets <em className="accent-serif">paper.</em>
           </h1>
         </Reveal>
         <Reveal as="div" delay={0.18} y={18}>
