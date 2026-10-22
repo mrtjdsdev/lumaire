@@ -3,7 +3,6 @@ import Link from "next/link";
 import { HardwareVisualizer } from "@/components/hardware/hardware-visualizer";
 import { Reveal } from "@/components/motion/reveal";
 import { HoverText } from "@/components/text/hover-text";
-import { buttonClass } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Hardware",
@@ -204,16 +203,15 @@ export default function ArchitecturePage() {
             <li>Find the manufacturing partners who can build a frame people want in their homes, and put early units in real rooms.</li>
           </ul>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/#waitlist" className={buttonClass("primary", "md")}>
+            <Link
+              href="/#waitlist"
+              className="press inline-flex h-11 items-center justify-center gap-2 rounded-full bg-[#f4f4f0] px-5 text-sm font-medium text-[#111111] transition-colors duration-200 hover:bg-white"
+            >
               Join the waitlist
             </Link>
             <Link
               href="/"
-              className={buttonClass(
-                "secondary",
-                "md",
-                "border-[#2a2a2a] bg-transparent text-[#f4f4f0] hover:bg-[#f4f4f0]/10",
-              )}
+              className="press inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[#45453f] bg-[#f4f4f0]/[0.06] px-5 text-sm font-medium text-[#f4f4f0] transition-colors duration-200 hover:border-[#a58a5f] hover:bg-[#f4f4f0]/[0.12]"
             >
               Back home
             </Link>

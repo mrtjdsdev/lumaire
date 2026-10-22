@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { HoverText } from "@/components/text/hover-text";
-import { buttonClass } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Founders",
@@ -104,26 +103,21 @@ export default function FoundersPage() {
             investment, partnership, or supplier conversations, contact the founding team directly.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a href="mailto:founders@lumaire.io" className={buttonClass("primary", "md", "bg-[#f4f4f0] text-[#111111] hover:bg-white")}>
+            <a
+              href="mailto:founders@lumaire.io"
+              className="press inline-flex h-11 items-center justify-center gap-2 rounded-full bg-[#f4f4f0] px-5 text-sm font-medium text-[#111111] transition-colors duration-200 hover:bg-white"
+            >
               founders@lumaire.io
             </a>
             <Link
               href="/#waitlist"
-              className={buttonClass(
-                "secondary",
-                "md",
-                "border-[#2a2a2a] bg-transparent text-[#f4f4f0] hover:bg-[#f4f4f0]/10",
-              )}
+              className="press inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[#45453f] bg-[#f4f4f0]/[0.06] px-5 text-sm font-medium text-[#f4f4f0] transition-colors duration-200 hover:border-[#a58a5f] hover:bg-[#f4f4f0]/[0.12]"
             >
               Join the waitlist
             </Link>
             <Link
               href="/architecture"
-              className={buttonClass(
-                "secondary",
-                "md",
-                "border-[#2a2a2a] bg-transparent text-[#f4f4f0] hover:bg-[#f4f4f0]/10",
-              )}
+              className="press inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[#45453f] bg-[#f4f4f0]/[0.06] px-5 text-sm font-medium text-[#f4f4f0] transition-colors duration-200 hover:border-[#a58a5f] hover:bg-[#f4f4f0]/[0.12]"
             >
               Read the hardware plan
             </Link>
