@@ -44,19 +44,26 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-40 border-b bg-[#f5f5f3]/85 backdrop-blur-md transition-[border-color,box-shadow] duration-300",
-        scrolled ? "border-[#deded8] shadow-[0_8px_30px_rgba(17,17,17,0.05)]" : "border-transparent",
-      )}
-    >
+    <header className="sticky top-0 z-40 px-3 pt-3 sm:px-6 sm:pt-4">
+      <motion.div
+        aria-hidden="true"
+        style={{ scaleX: progressScaleX }}
+        className="fixed inset-x-0 top-0 z-50 h-[2px] origin-left bg-[#a58a5f]"
+      />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:bg-card focus:px-3 focus:py-2"
       >
         Skip to content
       </a>
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-6 sm:px-10">
+      <div
+        className={cn(
+          "mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-3 rounded-full border pl-5 pr-2 backdrop-blur-xl transition-[border-color,background-color,box-shadow] duration-300",
+          scrolled
+            ? "border-[#e0e0d8] bg-[#f5f5f3]/92 shadow-[0_16px_44px_rgba(17,17,17,0.10)]"
+            : "border-[#e7e7e0]/70 bg-[#f5f5f3]/78 shadow-[0_8px_30px_rgba(17,17,17,0.05)]",
+        )}
+      >
         <Wordmark />
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
           {sectionLinks.map((link) => {
@@ -78,7 +85,7 @@ export function SiteHeader() {
           <MotionLink href="/#waitlist" aria-label="Join the waitlist" whileTap={{ scale: 0.96 }} className="inline-flex h-10 items-center rounded-full bg-ink px-4 text-sm text-paper shadow-[0_1px_2px_rgba(17,17,17,0.18)] hover:bg-[#2a2a2a] lg:hidden">
             Waitlist
           </MotionLink>
-          <MotionLink href="/#waitlist" whileTap={{ scale: 0.96 }} className="hidden h-10 items-center rounded-full bg-ink px-5 text-sm text-paper shadow-[0_1px_2px_rgba(17,17,17,0.18)] hover:bg-[#2a2a2a] lg:inline-flex">
+          <MotionLink href="/#waitlist" whileTap={{ scale: 0.96 }} className="hidden h-10 items-center rounded-full bg-ink px-5 text-sm text-paper shadow-[0_1px_2px_rgba(17,17,17,0.18)] transition-colors hover:bg-[#2a2a2a] lg:inline-flex">
             Join the waitlist
           </MotionLink>
           <motion.button
@@ -101,26 +108,21 @@ export function SiteHeader() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-[#deded8] bg-[#f5f5f3] lg:hidden"
+            className="mx-auto w-full max-w-6xl overflow-hidden lg:hidden"
           >
-            <nav className="mx-auto flex w-full max-w-6xl flex-col px-6 py-3 sm:px-10" aria-label="Mobile">
+            <nav className="mt-2 rounded-3xl border border-[#e0e0d8] bg-[#f5f5f3]/97 px-6 py-3 shadow-[0_16px_44px_rgba(17,17,17,0.10)] backdrop-blur-xl" aria-label="Mobile">
               {sectionLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="border-b border-[#ecece8] py-3 text-base" onClick={() => setOpenPath(null)}>
+                <Link key={link.href} href={link.href} className="block border-b border-[#ecece8] py-3 text-base" onClick={() => setOpenPath(null)}>
                   {link.label}
                 </Link>
               ))}
-              <MotionLink href="/#waitlist" whileTap={{ scale: 0.97 }} className="mt-4 inline-flex h-12 items-center justify-center rounded-full bg-ink text-sm text-paper" onClick={() => setOpenPath(null)}>
+              <MotionLink href="/#waitlist" whileTap={{ scale: 0.97 }} className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-sm text-paper" onClick={() => setOpenPath(null)}>
                 Join the waitlist
               </MotionLink>
             </nav>
           </motion.div>
         ) : null}
       </AnimatePresence>
-      <motion.div
-        aria-hidden="true"
-        style={{ scaleX: progressScaleX }}
-        className="absolute inset-x-0 bottom-0 h-[2px] origin-left bg-ink/60"
-      />
     </header>
   );
 }

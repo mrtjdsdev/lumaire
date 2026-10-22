@@ -26,7 +26,7 @@ const socialImage = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://lumaire.io"),
   title: {
-    default: "Lumaire — Digital information. A quieter presence.",
+    default: "Lumaire — Take back your attention.",
     template: "%s · Lumaire",
   },
   description,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Lumaire — Digital information. A quieter presence.",
+    title: "Lumaire — Take back your attention.",
     description,
     siteName: "Lumaire",
     type: "website",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lumaire — Digital information. A quieter presence.",
+    title: "Lumaire — Take back your attention.",
     description,
     images: [socialImage],
   },

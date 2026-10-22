@@ -54,6 +54,11 @@ export function SiteFooter() {
           </a>
         </div>
       </Reveal>
+      <div className="overflow-hidden" aria-hidden="true">
+        <p className="-mb-[0.23em] text-center text-[clamp(4.5rem,15.5vw,13rem)] font-medium uppercase leading-[0.82] tracking-[-0.02em] text-[#111111]/[0.055] select-none">
+          Lumaire
+        </p>
+      </div>
       <div className="border-t border-[#e4e4e0]">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-5 sm:px-10">
           <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#6b6b66]">© 2026 Lumaire</p>

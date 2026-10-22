@@ -36,7 +36,7 @@ export function CollectionSection() {
           </ul>
         </Reveal>
         <Reveal delay={0.12}>
-          <div className="relative flex items-center justify-center rounded-2xl border border-[#2a2a2a] bg-[#111] bg-[radial-gradient(120%_120%_at_50%_0%,#171713_0%,#111_55%)] px-4 py-16 shadow-[0_20px_50px_rgba(0,0,0,0.3)] sm:px-8 sm:py-20">
+          <div className="relative flex items-center justify-center rounded-[1.75rem] border border-[#2a2a2a] bg-[#111] bg-[radial-gradient(120%_120%_at_50%_0%,#1a1a15_0%,#111_55%)] px-4 py-16 shadow-[0_20px_50px_rgba(0,0,0,0.3)] sm:px-8 sm:py-20">
             <CollectionFolder />
             <p className="absolute bottom-4 left-5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#9a9a94]">
               The product — four pages

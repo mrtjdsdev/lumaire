@@ -92,9 +92,12 @@ export function WaitlistSection() {
             Choosing a model records interest only. It is not an order, no payment is taken, and final
             specifications will be shared as they are confirmed.
           </p>
+          <p className="accent-serif mt-8 max-w-md text-[1.35rem] leading-snug text-[#e8e8e2]">
+            The first step toward a calmer home is a wall that doesn&rsquo;t shout.
+          </p>
         </Reveal>
 
-        <Reveal as="form" delay={0.1} className="rounded-2xl border border-[#2e2e2e] bg-[#171717] p-6 shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:p-8" onSubmit={onSubmit} noValidate aria-busy={submitting}>
+        <Reveal as="form" delay={0.1} className="rounded-[1.75rem] border border-[#2e2e2e] bg-[#171717] bg-[radial-gradient(120%_140%_at_50%_0%,#1d1d1a_0%,#171717_55%)] p-6 shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:p-8" onSubmit={onSubmit} noValidate aria-busy={submitting}>
           <fieldset>
             <legend className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#b7b7b1]">Models you want to hear about</legend>
             <div className="mt-4 grid gap-2">

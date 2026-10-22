@@ -34,7 +34,7 @@ export function ShowcaseSection() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {shots.map((shot, index) => (
             <Reveal key={shot.src} delay={index * 0.1}>
-              <figure className="group overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#111] shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+              <figure className="group lift overflow-hidden rounded-[1.75rem] border border-[#2a2a2a] bg-[#111] shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:border-[#3a3a3a]">
                 <div className="overflow-hidden">
                   <Image
                     src={shot.src}

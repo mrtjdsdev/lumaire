@@ -77,7 +77,7 @@ export function TechnologySection() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] shadow-[0_20px_50px_rgba(0,0,0,0.3)] lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#2a2a2a] shadow-[0_20px_50px_rgba(0,0,0,0.3)] lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal className="bg-[#111] p-6 sm:p-8">
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">How the surface is read</p>
             <svg viewBox="0 0 360 280" className="mt-6 h-auto w-full" role="img" aria-label="Diagram of ambient light reflecting from an e-paper surface">
@@ -104,7 +104,7 @@ export function TechnologySection() {
           </Reveal>
           <ol className="bg-[#101010]">
             {points.map((point, index) => (
-              <Reveal as="li" key={point.title} delay={index * 0.08} className="border-b border-[#2a2a2a] p-6 last:border-b-0 sm:p-8">
+              <Reveal as="li" key={point.title} delay={index * 0.08} className="border-b border-[#2a2a2a] p-6 transition-colors last:border-b-0 hover:bg-[#131313] sm:p-8">
                 <p className="font-mono text-[11px] text-[#9a9a94]">0{index + 1}</p>
                 <h3 className="mt-3 text-xl font-medium tracking-[-0.03em]">{point.title}</h3>
                 <p className="mt-2 max-w-lg text-sm leading-6 text-[#c8c8c2]">{point.copy}</p>
@@ -113,9 +113,9 @@ export function TechnologySection() {
           </ol>
         </div>
 
-        <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] md:grid-cols-4">
+        <div className="mt-8 grid gap-px overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#2a2a2a] md:grid-cols-4">
           {pipeline.map((item, index) => (
-            <Reveal as="article" key={item.step} delay={index * 0.07} className="bg-[#101010] p-5 sm:p-6">
+            <Reveal as="article" key={item.step} delay={index * 0.07} className="bg-[#101010] p-5 transition-colors hover:bg-[#141414] sm:p-6">
               <p className="font-mono text-[11px] text-[#9a9a94]">{item.step}</p>
               <h3 className="mt-3 text-lg font-medium tracking-[-0.03em]">{item.title}</h3>
               <p className="mt-2 text-sm leading-6 text-[#b7b7b1]">{item.copy}</p>
@@ -125,9 +125,9 @@ export function TechnologySection() {
 
         <Reveal className="mt-8">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">Trade-offs, chosen on purpose</p>
-          <dl className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] sm:grid-cols-2">
+          <dl className="mt-4 grid gap-px overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#2a2a2a] sm:grid-cols-2">
             {tradeoffs.map((item) => (
-              <div key={item.title} className="bg-[#0c0c0c] px-5 py-5 sm:px-6">
+              <div key={item.title} className="bg-[#0c0c0c] px-5 py-5 transition-colors hover:bg-[#101010] sm:px-6">
                 <dt className="text-sm font-medium text-[#f4f4f0]">{item.title}</dt>
                 <dd className="mt-2 text-sm leading-6 text-[#b7b7b1]">{item.copy}</dd>
               </div>

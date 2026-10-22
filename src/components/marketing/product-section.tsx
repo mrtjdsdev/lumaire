@@ -47,11 +47,10 @@ export function ProductSection() {
         </Reveal>
       </div>
       <div className="mx-auto w-full max-w-6xl px-6 pb-24 sm:px-10 sm:pb-32">
-        <ol className="relative grid gap-10 md:grid-cols-3 md:gap-8">
-          <span className="absolute left-[8%] right-[8%] top-5 hidden h-px bg-[#2a2a2a] md:block" aria-hidden="true" />
+        <ol className="grid gap-4 md:grid-cols-3">
           {steps.map((step, index) => (
-            <Reveal as="li" key={step.number} delay={index * 0.09} className="relative">
-              <p className="relative z-10 inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-[#2a2a2a] bg-[#111] px-3 font-mono text-sm text-[#f4f4f0]">{step.number}</p>
+            <Reveal as="li" key={step.number} delay={index * 0.09} className="lift rounded-3xl border border-[#262626] bg-[#101010] p-6 hover:border-[#3a3a3a] sm:p-7">
+              <p className="inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-[#2f2f2f] bg-[#161616] px-3 font-mono text-sm text-[#f4f4f0]">{step.number}</p>
               <h3 className="mt-6 text-2xl font-medium tracking-[-0.03em]">
                 <HoverText effect="rain">{step.title}</HoverText>
               </h3>

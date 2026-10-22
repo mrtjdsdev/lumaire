@@ -22,20 +22,20 @@ export function VisionSection() {
             calendar, the state of a room, a photograph you love — these can be present the way paper is
             present. Readable, still, and easy to ignore until the moment you want them.
           </p>
-          <p className="mt-6 max-w-xl border-l-2 border-[#f4f4f0] pl-4 text-base leading-7 text-[#f4f4f0]">
-            Our mission: technology that serves your environment without constantly demanding your attention.
+          <p className="accent-serif mt-8 max-w-xl border-l-2 border-[#a58a5f] pl-5 text-[1.55rem] leading-snug text-[#f4f4f0]">
+            Technology that serves your environment — without constantly demanding your attention.
           </p>
         </Reveal>
-        <Reveal as="ul" delay={0.1} className="grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] shadow-[0_20px_50px_rgba(0,0,0,0.25)] sm:grid-cols-3 lg:grid-cols-1">
-          <li className="bg-[#111] p-5">
+        <Reveal as="ul" delay={0.1} className="grid gap-px overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#2a2a2a] shadow-[0_20px_50px_rgba(0,0,0,0.25)] sm:grid-cols-3 lg:grid-cols-1">
+          <li className="bg-[#111] p-5 transition-colors hover:bg-[#141414]">
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#9a9a94]">Calm by design</p>
             <p className="mt-2 text-sm leading-6 text-[#c8c8c2]">Information that is there when you look for it and quiet when you don&rsquo;t. We design for glances, not engagement — that is a design philosophy, and we think it is enough.</p>
           </li>
-          <li className="bg-[#111] p-5">
+          <li className="bg-[#111] p-5 transition-colors hover:bg-[#141414]">
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#9a9a94]">Made for rooms</p>
             <p className="mt-2 text-sm leading-6 text-[#c8c8c2]">A display should earn its place on a wall the way a frame does — by fitting the room it hangs in, not by dominating it.</p>
           </li>
-          <li className="bg-[#111] p-5">
+          <li className="bg-[#111] p-5 transition-colors hover:bg-[#141414]">
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#9a9a94]">An ecosystem, not a gadget</p>
             <p className="mt-2 text-sm leading-6 text-[#c8c8c2]">Different sizes for different rooms, and content that flows from the phone — and eventually the home systems — you already use. One family of displays, designed together.</p>
           </li>

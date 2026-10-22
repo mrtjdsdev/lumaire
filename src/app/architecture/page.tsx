@@ -106,7 +106,7 @@ export default function ArchitecturePage() {
           ))}
         </Reveal>
 
-        <Reveal as="section" id="standing" className="mt-14 scroll-mt-28 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-2">
+        <Reveal as="section" id="standing" className="mt-14 scroll-mt-28 grid gap-px overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-2">
           <div className="bg-[#101010] p-6 sm:p-8">
             <h2 className="text-xl font-medium tracking-[-0.03em]">Where development stands</h2>
             <ul className="mt-5 space-y-3 text-sm leading-6 text-[#b7b7b1]">
@@ -195,7 +195,7 @@ export default function ArchitecturePage() {
           </dl>
         </Reveal>
 
-        <Reveal as="section" id="before" className="mt-8 scroll-mt-28 rounded-2xl border border-[#2a2a2a] bg-[#050505] p-6 sm:p-8">
+        <Reveal as="section" id="before" className="mt-8 scroll-mt-28 rounded-3xl border border-[#2a2a2a] bg-[#050505] p-6 sm:p-8">
           <h2 className="text-xl font-medium tracking-[-0.03em]">Before anyone can hang one up</h2>
           <ul className="mt-4 space-y-3 text-sm leading-7 text-[#b7b7b1]">
             <li>Choose the e-paper modules and confirm — then publish — their resolutions, dimensions, and refresh behavior.</li>

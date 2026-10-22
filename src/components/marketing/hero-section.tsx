@@ -7,23 +7,27 @@ export function HeroSection() {
     <HeroFormation>
       <div className="relative z-10 flex min-h-[calc(100svh-4.5rem)] flex-col justify-center px-6 py-16 sm:px-10 sm:py-20 lg:w-1/2 lg:px-16 lg:py-24">
         <Reveal as="div" y={12}>
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#c8c8c2]">Connected e-paper displays</p>
+          <p className="inline-flex items-center gap-2.5 rounded-full border border-[#f4f4f0]/25 bg-[#f4f4f0]/8 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#e8e8e2] backdrop-blur-[2px]">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#c9ab72]" aria-hidden="true" />
+            In development — the waitlist is open
+          </p>
         </Reveal>
         <Reveal as="div" delay={0.08} y={22}>
-          <h1 className="mt-5 max-w-[10em] text-[clamp(2.35rem,8vw,6.1rem)] font-medium leading-[0.92] tracking-[-0.045em] text-[#f7f7f4]">
-            Digital information. A quieter presence.
+          <h1 className="mt-6 max-w-[9em] text-[clamp(2.6rem,8.5vw,6.4rem)] font-medium leading-[0.92] tracking-[-0.045em] text-[#f7f7f4]">
+            Take back your <em className="accent-serif">attention.</em>
           </h1>
         </Reveal>
         <Reveal as="div" delay={0.18} y={18}>
           <p className="mt-6 max-w-md text-lg leading-8 text-[#d7d7d1]">
-            Lumaire is building e-paper displays for the information a home actually needs — calendars, room
-            dashboards, photographs, and art. It arrives like paper: reflective, still, and only as present as
-            you want it to be.
+            Your home is full of screens competing to be looked at. Lumaire is the opposite — connected
+            e-paper displays that put the information you need on the wall: calendars, room dashboards,
+            photographs, and art. Quietly, beautifully, and only as present as you want it to be.
           </p>
         </Reveal>
         <Reveal delay={0.28} className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <PressLink href="#waitlist" className="inline-flex h-12 items-center justify-center rounded-full bg-[#f4f4f0] px-6 text-sm font-medium text-ink shadow-[0_8px_24px_rgba(0,0,0,0.35)] hover:bg-white">
+          <PressLink href="#waitlist" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#f4f4f0] px-6 text-sm font-medium text-ink shadow-[0_8px_24px_rgba(0,0,0,0.35)] hover:bg-white">
             Join the waitlist
+            <span aria-hidden="true">→</span>
           </PressLink>
           <PressLink
             href="#technology"
@@ -45,11 +49,6 @@ export function HeroSection() {
             <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#b7b7b1]">Presence</dt>
             <dd className="mt-1 text-sm text-[#f7f7f4]">Made for the wall</dd>
           </div>
-        </Reveal>
-        <Reveal delay={0.46} y={10}>
-          <p className="mt-4 max-w-sm font-mono text-[11px] uppercase leading-5 tracking-[0.14em] text-[#a3a39c]">
-            In development. Join the waitlist for progress and early access.
-          </p>
         </Reveal>
         <a href="#product" className="mt-12 inline-flex w-fit items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-[#b7b7b1]">
           <span className="scroll-cue-line inline-block h-8 w-px bg-current" aria-hidden="true" />

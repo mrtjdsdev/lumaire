@@ -119,6 +119,14 @@ html {
   transform-origin: left;
 }
 
+/* Serif italic accent word used in the hero and mission headlines. */
+.accent-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 480;
+  letter-spacing: -0.02em;
+}
+
 /* Soft lift for linked cards. */
 .lift {
   transition:

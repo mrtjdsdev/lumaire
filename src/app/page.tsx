@@ -5,10 +5,10 @@ const description =
   "Lumaire is building connected e-paper displays that bring useful information into a room the way paper does — reflectively and quietly. Calendars, dashboards, photographs, and art, without another glowing screen.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Lumaire — Digital information. A quieter presence." },
+  title: { absolute: "Lumaire — Take back your attention." },
   description,
   openGraph: {
-    title: "Lumaire — Digital information. A quieter presence.",
+    title: "Lumaire — Take back your attention.",
     description,
     siteName: "Lumaire",
   },
