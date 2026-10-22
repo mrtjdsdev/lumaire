@@ -13,8 +13,8 @@ export function LandingPage() {
       <section className="border-b border-[#242424] bg-[#070707] text-[#f4f4f0]">
         <div className="mx-auto w-full max-w-6xl px-6 py-16 sm:px-10 sm:py-20">
           <Quote
-            quote="We harness the light of the sun to create space for art, thought, and productivity."
-            author="The Lumaire Founding Team"
+            quote="We turn the quiet power of sunlight into a brighter future for the way we live, think, and create."
+            author="The Founders of Lumaire"
           />
         </div>
       </section>
