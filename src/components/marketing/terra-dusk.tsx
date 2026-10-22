@@ -483,7 +483,17 @@ export default function TerraDusk(props: TerraDuskProps) {
             root.style.cursor = ""
             if (e.type === "pointercancel") over = false
         }
+        // Track the cursor at window level too: when the globe is used
+        // as a page backdrop, overlaid content swallows pointermove
+        // events before they reach this root, so hover-follow would
+        // never engage. Dragging keeps using the root listener above
+        // (pointer capture retargets those moves to the root).
+        const onWindowMove = (e: PointerEvent) => {
+            if (dragging || e.pointerType === "touch") return
+            onMove(e)
+        }
         root.addEventListener("pointermove", onMove)
+        window.addEventListener("pointermove", onWindowMove)
         root.addEventListener("pointerenter", onMove)
         root.addEventListener("pointerleave", onLeave)
         root.addEventListener("pointerdown", onDown)
@@ -629,6 +639,7 @@ export default function TerraDusk(props: TerraDuskProps) {
             // released when the canvas leaves the DOM.
             mq?.removeEventListener?.("change", onMq)
             root.removeEventListener("pointermove", onMove)
+            window.removeEventListener("pointermove", onWindowMove)
             root.removeEventListener("pointerenter", onMove)
             root.removeEventListener("pointerleave", onLeave)
             root.removeEventListener("pointerdown", onDown)
