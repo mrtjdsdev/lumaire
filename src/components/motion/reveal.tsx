@@ -13,6 +13,7 @@ const tags = {
   form: motion.form,
   header: motion.header,
   li: motion.li,
+  nav: motion.nav,
   ol: motion.ol,
   section: motion.section,
   ul: motion.ul,

@@ -55,9 +55,12 @@ export function SiteFooter() {
         </div>
       </Reveal>
       <div className="border-t border-[#e4e4e0]">
-        <p className="mx-auto w-full max-w-6xl px-6 py-5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#6b6b66] sm:px-10">
-          © 2026 Lumaire
-        </p>
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-5 sm:px-10">
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#6b6b66]">© 2026 Lumaire</p>
+          <a href="#main" className="nav-link w-fit font-mono text-[11px] uppercase tracking-[0.16em] text-[#6b6b66] transition-colors hover:text-ink">
+            Back to top
+          </a>
+        </div>
       </div>
     </footer>
   );

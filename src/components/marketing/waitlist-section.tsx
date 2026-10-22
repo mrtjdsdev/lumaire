@@ -138,6 +138,7 @@ export function WaitlistSection() {
                 name="name"
                 type="text"
                 autoComplete="name"
+                placeholder="Your name"
                 value={name}
                 maxLength={80}
                 required
@@ -166,6 +167,7 @@ export function WaitlistSection() {
                 type="email"
                 autoComplete="email"
                 inputMode="email"
+                placeholder="you@example.com"
                 value={email}
                 maxLength={160}
                 required

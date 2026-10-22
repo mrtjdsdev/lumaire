@@ -40,6 +40,7 @@ html {
 
 body {
   margin: 0;
+  -webkit-tap-highlight-color: transparent;
   min-height: 100dvh;
   background-color: var(--color-paper);
   color: var(--color-ink);
@@ -112,7 +113,8 @@ html {
 }
 
 .nav-link:hover::after,
-.nav-link:focus-visible::after {
+.nav-link:focus-visible::after,
+.nav-link[data-active="true"]::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -134,8 +136,10 @@ html {
   color: #f5f5f3;
 }
 
+/* Brass reads on both the paper (light) and near-black surfaces, unlike
+   a black outline, which disappears against the dark sections. */
 :focus-visible {
-  outline: 2px solid #111111;
+  outline: 2px solid #a58a5f;
   outline-offset: 3px;
 }
 

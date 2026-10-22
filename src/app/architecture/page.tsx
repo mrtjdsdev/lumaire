@@ -87,7 +87,26 @@ export default function ArchitecturePage() {
           <HardwareVisualizer />
         </Reveal>
 
-        <Reveal as="section" className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-2">
+        <Reveal as="nav" delay={0.05} className="mt-8 flex flex-wrap items-center gap-2" aria-label="On this page">
+          <span className="mr-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">On this page</span>
+          {[
+            { href: "#standing", label: "Where it stands" },
+            { href: "#image-path", label: "Image path" },
+            { href: "#delivery", label: "Delivery" },
+            { href: "#tradeoffs", label: "Trade-offs" },
+            { href: "#before", label: "What remains" },
+          ].map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="rounded-full border border-[#2e2e2e] bg-[#111] px-3.5 py-1.5 text-sm text-[#d6d6d0] transition-colors hover:border-[#8a8a84] hover:text-[#f4f4f0]"
+            >
+              {item.label}
+            </a>
+          ))}
+        </Reveal>
+
+        <Reveal as="section" id="standing" className="mt-14 scroll-mt-28 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-2">
           <div className="bg-[#101010] p-6 sm:p-8">
             <h2 className="text-xl font-medium tracking-[-0.03em]">Where development stands</h2>
             <ul className="mt-5 space-y-3 text-sm leading-6 text-[#b7b7b1]">
@@ -113,7 +132,7 @@ export default function ArchitecturePage() {
           </div>
         </Reveal>
 
-        <Reveal as="section" className="mt-8">
+        <Reveal as="section" id="image-path" className="mt-8 scroll-mt-28">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">The path an image will take</p>
           <ol className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
@@ -126,7 +145,7 @@ export default function ArchitecturePage() {
           </ol>
         </Reveal>
 
-        <Reveal as="section" className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-[1.1fr_0.9fr]">
+        <Reveal as="section" id="delivery" className="mt-8 scroll-mt-28 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] lg:grid-cols-[1.1fr_0.9fr]">
           <div className="bg-[#101010] p-6 sm:p-8">
             <h2 className="text-xl font-medium tracking-[-0.03em]">Delivery, kept simple</h2>
             <p className="mt-4 text-sm leading-7 text-[#b7b7b1]">
@@ -164,7 +183,7 @@ export default function ArchitecturePage() {
           </dl>
         </Reveal>
 
-        <Reveal as="section" className="mt-8">
+        <Reveal as="section" id="tradeoffs" className="mt-8 scroll-mt-28">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">Trade-offs, stated plainly</p>
           <dl className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] sm:grid-cols-2">
             {tradeoffs.map((item) => (
@@ -176,7 +195,7 @@ export default function ArchitecturePage() {
           </dl>
         </Reveal>
 
-        <Reveal as="section" className="mt-8 rounded-2xl border border-[#2a2a2a] bg-[#050505] p-6 sm:p-8">
+        <Reveal as="section" id="before" className="mt-8 scroll-mt-28 rounded-2xl border border-[#2a2a2a] bg-[#050505] p-6 sm:p-8">
           <h2 className="text-xl font-medium tracking-[-0.03em]">Before anyone can hang one up</h2>
           <ul className="mt-4 space-y-3 text-sm leading-7 text-[#b7b7b1]">
             <li>Choose the e-paper modules and confirm — then publish — their resolutions, dimensions, and refresh behavior.</li>

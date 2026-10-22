@@ -37,6 +37,14 @@ export function ProductSection() {
             stays there, readable in the room&rsquo;s own light, until you choose something new.
           </p>
         </Reveal>
+        <Reveal delay={0.08} className="mt-10 flex flex-wrap items-center gap-2">
+          <span className="mr-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9a94]">Made for</span>
+          {["Calendars & schedules", "Room dashboards", "Photographs & art", "Lists that stay put"].map((item) => (
+            <span key={item} className="rounded-full border border-[#2e2e2e] bg-[#111] px-3.5 py-1.5 text-sm text-[#d6d6d0]">
+              {item}
+            </span>
+          ))}
+        </Reveal>
       </div>
       <div className="mx-auto w-full max-w-6xl px-6 pb-24 sm:px-10 sm:pb-32">
         <ol className="relative grid gap-10 md:grid-cols-3 md:gap-8">

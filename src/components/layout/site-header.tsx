@@ -59,11 +59,20 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-6 sm:px-10">
         <Wordmark />
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
-          {sectionLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="nav-link text-sm text-[#3f3f3c] transition-colors hover:text-ink">
-              <HoverText effect="split">{link.label}</HoverText>
-            </Link>
-          ))}
+          {sectionLinks.map((link) => {
+            const active = link.href === pathname;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                data-active={active || undefined}
+                aria-current={active ? "page" : undefined}
+                className={`nav-link text-sm transition-colors hover:text-ink ${active ? "text-ink" : "text-[#3f3f3c]"}`}
+              >
+                <HoverText effect="split">{link.label}</HoverText>
+              </Link>
+            );
+          })}
         </nav>
         <div className="flex items-center gap-2">
           <MotionLink href="/#waitlist" aria-label="Join the waitlist" whileTap={{ scale: 0.96 }} className="inline-flex h-10 items-center rounded-full bg-ink px-4 text-sm text-paper shadow-[0_1px_2px_rgba(17,17,17,0.18)] hover:bg-[#2a2a2a] lg:hidden">
